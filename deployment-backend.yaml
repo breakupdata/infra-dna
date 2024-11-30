@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dna-ufc-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dna-ufc-backend
+  template:
+    metadata:
+      labels:
+        app: dna-ufc-backend
+    spec:
+      containers:
+      - name: dna-ufc-backend
+        image: gcr.io/corded-woodland-434601-k5/dna-ufc-backend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:postgresql://34.133.234.191:5432/postgres"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "postgres"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "5A|ccOMK<s,`.i{|"

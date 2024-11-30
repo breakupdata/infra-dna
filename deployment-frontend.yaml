@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dna-ufc-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dna-ufc-frontend
+  template:
+    metadata:
+      labels:
+        app: dna-ufc-frontend
+    spec:
+      containers:
+      - name: dna-ufc-frontend
+        image: gcr.io/corded-woodland-434601-k5/dna-frontend:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NEXT_PUBLIC_API_URL
+          value: "http://35.193.15.218:8080/api/v1"  # IP público do back-end

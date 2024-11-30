@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://34.133.234.191:5432/postgres
+  SPRING_DATASOURCE_USERNAME: postgres
+  SPRING_JPA_HIBERNATE_DDL_AUTO: update
+  SPRING_MAIL_HOST: smtp.gmail.com
+  SPRING_MAIL_PORT: "587"
+  SPRING_MAIL_USERNAME: dna@ufc.br
